@@ -1,0 +1,37 @@
+spring:
+  # RabbitMQ
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+    # 配置虚拟机
+    virtual-host: /
+    # 开启消息确认机制 confirm 异步
+    publisher-confirm-type: correlated
+    # 开启return机制
+    publisher-returns: true
+    # 消息开启手动确认
+    listener:
+      direct:
+        acknowledge-mode: manual
+
+rabbitmq:
+  work:
+    queue-name: queue_work
+  fanout:
+    queue-name-1: queue_fanout_1
+    queue-name-2: queue_fanout_2
+    exchange-name: exchange_fanout
+  topic:
+    queue-name-1: queue_topic_1
+    routing-key-1: topic.#
+    queue-name-2: queue_topic_2
+    routing-key-2: topic.*
+    exchange-name: exchange_topic
+  confirm:
+    queue-name: queue_confirm
+  return:
+    queue-name: queue_return
+    exchange-name: exchange_return
+    routing-key: return.*
