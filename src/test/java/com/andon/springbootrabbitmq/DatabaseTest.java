@@ -21,7 +21,7 @@ public class DatabaseTest {
 
     @Test
     public void test05() {
-        rabbitMQProducer.sendReturn("return.an", "return!!");
+        rabbitMQProducer.sendReturn("return.an.return", "return!!");
     }
 
     @Test
